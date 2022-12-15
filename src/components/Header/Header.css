@@ -17,3 +17,34 @@
 .header a:hover{
     color: orange;
 }
+.menu-bar{
+    display: none;
+}
+
+
+
+@media screen and (max-width:550px) {
+    .header{
+        max-width: 375px;
+        justify-content: space-between;
+    }
+    .menu{
+        display: none;
+    }
+    
+    .menu-bar{
+        display: flex;
+    }
+}
+
+.menu-bar__block{
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width:350px){
+    .header{
+        max-width: 350px;
+        justify-content: space-between;
+    }
+}
