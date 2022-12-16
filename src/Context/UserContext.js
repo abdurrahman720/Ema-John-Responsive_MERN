@@ -14,6 +14,7 @@ const UserContext = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     const signGoogle = () => {
+        setLoading(true);  
         return signInWithPopup(auth, googleProvider);
     }
     const signUpUser = (email, password) => {

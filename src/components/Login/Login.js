@@ -16,6 +16,7 @@ const Login = () => {
             .then(userCredentials => {
                 const currentuser = userCredentials.user;
                 console.log(currentuser);
+                navigate(from, {replace: true});
             })
             .catch(err => {
                 console.log(err);
