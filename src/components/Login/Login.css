@@ -1,0 +1,108 @@
+.form-container{
+width: 70%;
+/* height: 70%; */
+margin: 20px auto;
+border: 1px solid #95A0A7;
+border-radius: 8px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+}
+
+
+.form-title{
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 35px;
+line-height: 42px;
+letter-spacing: 0.0025em;
+
+}
+
+.form-control{
+    margin: 1em 2em;
+}
+
+.form-control label{
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.0015em;
+
+    color: #2A414F;
+}
+
+.form-control input{
+    width: 50vw;
+    height: 5vh;
+    border: 1px solid #95A0A7;
+    border-radius: 5px;
+}
+
+.btn-container{
+    display: flex;
+}
+.btn-submit{
+    width: 40%;
+    height: 5vh;
+    background: rgba(255, 153, 0, 0.3);
+    border-radius: 0.5em;
+    margin: 1em auto;
+    color: black;
+}
+p{
+    margin: 0 2em 2.5em;
+}
+.link{
+    text-decoration: none;
+    color: orange;
+}
+
+.googleSign{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.line-break{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.line-one{
+    width: 25vw;
+    height: 0px;
+    border-bottom: 1px solid gray;
+}
+.or{
+    font-weight: 200;
+    margin: 0 1em;
+    margin-bottom: 0.2em;
+}
+
+.google-btn{
+    width: 50vw;
+    height: 5vh;
+    border: 1px solid #95A0A7;
+    border-radius: 5px;
+    margin: 1em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.google-btn span{
+    margin-left: 0.5em;;
+}
+
+.google-btn:hover{
+    background-color: rgba(255, 153, 0, 0.3);
+}
