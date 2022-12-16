@@ -5,9 +5,20 @@ import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../../Context/UserContext';
 
 const Register = () => {
-    const {signUpUser,error, setError} = useContext(AuthContext)
+    const {signUpUser,error, setError,signGoogle} = useContext(AuthContext)
     const navigate = useNavigate();
 
+    const googleSignIn = () => {
+        signGoogle()
+            .then(userCredentials => {
+                const currentuser = userCredentials.user;
+                console.log(currentuser);
+            })
+            .catch(err => {
+                console.log(err);
+                setError(err.message)
+        })
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -70,7 +81,7 @@ const Register = () => {
                     <div className="line-one"></div>
                 </div>
                 <div className="google-btn-container">
-                    <button className="google-btn">
+                    <button onClick={googleSignIn} className="google-btn">
                         <>
                         <FcGoogle></FcGoogle>
                         <span>Continue with Google</span>

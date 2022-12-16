@@ -5,11 +5,23 @@ import { AuthContext } from '../../Context/UserContext';
 import './Login.css'
 
 const Login = () => {
-    const { setUser, loginUser, error, setError } = useContext(AuthContext);
+    const { loginUser, error, setError, signGoogle } = useContext(AuthContext);
     
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+
+   const googleSignIn = () => {
+        signGoogle()
+            .then(userCredentials => {
+                const currentuser = userCredentials.user;
+                console.log(currentuser);
+            })
+            .catch(err => {
+                console.log(err);
+                setError(err.message)
+        })
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -59,7 +71,7 @@ const Login = () => {
                     <div className="line-one"></div>
                 </div>
                 <div className="google-btn-container">
-                    <button className="google-btn">
+                    <button onClick={googleSignIn} className="google-btn">
                         <>
                         <FcGoogle></FcGoogle>
                         <span>Continue with Google</span>
