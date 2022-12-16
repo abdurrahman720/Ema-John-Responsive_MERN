@@ -68,7 +68,7 @@ const Shop = () => {
             </div>
             <div className="cart-container">
                 <Cart cart={cart} clearCart={clearCart}>
-                    <Link to="/orders"> Review Order</Link>
+                    <button><Link to="/orders"> Review Order</Link></button>
                 </Cart>
             </div>
         </div>

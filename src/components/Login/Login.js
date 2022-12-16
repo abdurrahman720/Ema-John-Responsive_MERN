@@ -1,13 +1,16 @@
 import React, { useContext } from 'react';
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 import './Login.css'
 
 const Login = () => {
-
-    const {setUser, loginUser,error, setError } = useContext(AuthContext);
+    const { setUser, loginUser, error, setError } = useContext(AuthContext);
+    
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setError('');
@@ -20,7 +23,7 @@ const Login = () => {
                 // setUser(currentuser);
                 console.log(currentuser);
                 form.reset();
-                navigate('/')
+                navigate(from, {replace: true});
             })
             .catch(err => {
                 setError(err.message);

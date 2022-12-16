@@ -20,12 +20,12 @@ const Cart = (props) => {
             <p>Selected Items: {quantity}</p>
             <p>Total price: ${total}</p>
             <p>Total Shipping: ${shipping}</p>
-            <p>Tax: {tax}</p>
+            <p>Tax: ${tax}</p>
             <h5>Grand Total: {grandTotal.toFixed(2)}</h5>
             <button onClick={clearCart}>
                 Delete
             </button>
-            <button>{children}</button>
+            {children}
         </div>
     );
 };
