@@ -19,16 +19,14 @@ function App() {
       children: [
         {
           path: "/",
-          loader: () => {
-            return fetch("http://localhost:5001/products");
-          },
+
           element: <Shop></Shop>,
         },
         {
           path: "/shop",
-          loader: () => {
-            return fetch("http://localhost:5001/products");
-          },
+          // loader: () => {
+          //   return fetch("http://localhost:5001/products");
+          // },
           element: <Shop></Shop>,
         },
         {
