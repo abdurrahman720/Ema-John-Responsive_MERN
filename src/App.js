@@ -1,68 +1,75 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './App.css';
-import PrivateRoute from './Authentication/PrivateRoute';
-import About from './components/About/About';
-import Inventory from './components/Inventory/Inventory';
-import Login from './components/Login/Login';
-import Orders from './components/Orders/Orders';
-import Register from './components/Register/Register';
-import Shipping from './components/Shipping/Shipping';
-import Shop from './components/Shop/Shop';
-import Main from './layouts/Main';
-import { ProductsAndCartLoader } from './loaders/ProductsAndCartLoader';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./App.css";
+import PrivateRoute from "./Authentication/PrivateRoute";
+import About from "./components/About/About";
+import Inventory from "./components/Inventory/Inventory";
+import Login from "./components/Login/Login";
+import Orders from "./components/Orders/Orders";
+import Register from "./components/Register/Register";
+import Shipping from "./components/Shipping/Shipping";
+import Shop from "./components/Shop/Shop";
+import Main from "./layouts/Main";
+import { ProductsAndCartLoader } from "./loaders/ProductsAndCartLoader";
 
 function App() {
   const router = createBrowserRouter([
-    { 
-      path: '/',
+    {
+      path: "/",
       element: <Main></Main>,
       children: [
-        { 
-          path: '/',
+        {
+          path: "/",
           loader: () => {
-            return fetch('products.json')
+            return fetch("http://localhost:5001/products");
           },
-          element: <Shop></Shop>
+          element: <Shop></Shop>,
         },
-        { 
-          path: '/shop',
+        {
+          path: "/shop",
           loader: () => {
-            return fetch('products.json')
+            return fetch("http://localhost:5001/products");
           },
-          element: <Shop></Shop>
-        },
-        { 
-          path: '/orders',
-          loader: ProductsAndCartLoader, 
-          element: <Orders></Orders>
+          element: <Shop></Shop>,
         },
         {
-          path: '/about',
-          element: <About></About>
+          path: "/orders",
+          loader: ProductsAndCartLoader,
+          element: <Orders></Orders>,
         },
         {
-          path: '/inventory',
-          element: <PrivateRoute><Inventory></Inventory></PrivateRoute>
+          path: "/about",
+          element: <About></About>,
         },
         {
-          path: '/login',
-          element: <Login></Login>
+          path: "/inventory",
+          element: (
+            <PrivateRoute>
+              <Inventory></Inventory>
+            </PrivateRoute>
+          ),
         },
         {
-          path: '/register',
-          element: <Register></Register>
+          path: "/login",
+          element: <Login></Login>,
         },
         {
-          path: '/shipping',
-          element: <PrivateRoute><Shipping></Shipping></PrivateRoute>
-        }
-      ]
+          path: "/register",
+          element: <Register></Register>,
+        },
+        {
+          path: "/shipping",
+          element: (
+            <PrivateRoute>
+              <Shipping></Shipping>
+            </PrivateRoute>
+          ),
+        },
+      ],
     },
-    
-  ])
+  ]);
   return (
     <div>
-        <RouterProvider router={router}></RouterProvider>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
